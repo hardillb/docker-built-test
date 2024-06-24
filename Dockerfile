@@ -6,7 +6,7 @@ FROM node:${NODE_VERSION}-${OS} AS base
 
 WORKDIR /usr/src/node-red
 COPY package.json .
-RUN apk add --nocache \
+RUN apk add --no-cache \
     bash \
     tzdata \
     curl \
