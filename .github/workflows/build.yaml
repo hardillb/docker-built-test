@@ -25,8 +25,18 @@ jobs:
             type=semver,pattern={{version}}
       - name: Setup QEMU
         uses: docker/setup-qemu-action@v3
+      - name: Set up SSH
+        uses: MrSquaare/ssh-setup-action@2d028b70b5e397cf8314c6eaea229a6c3e34977a # v3.1.0
+        with:
+          host: ${{ secrets.SSH_REMOTE_HOST}}
+          private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+          private-key-name: remote
       - name: Setup Docker buildx
         uses: docker/setup-buildx-action@v3
+        with:
+          append: |
+            - endpoint: ssh://nr@${{ secrets.SSH_REMOTE_HOST }}:2022
+              platforms: linux/arm64, linux/arm/v6, linux/arm/v7
       - name: Build and push
         id: build-push
         uses: docker/build-push-action@v5
