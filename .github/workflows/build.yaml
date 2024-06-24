@@ -23,8 +23,8 @@ jobs:
           tags: |
             type=ref,event=branch
             type=semver,pattern={{version}}
-      - name: Setup QEMU
-        uses: docker/setup-qemu-action@v3
+      # - name: Setup QEMU
+      #   uses: docker/setup-qemu-action@v3
       - name: Set up SSH
         uses: MrSquaare/ssh-setup-action@2d028b70b5e397cf8314c6eaea229a6c3e34977a # v3.1.0
         with:
