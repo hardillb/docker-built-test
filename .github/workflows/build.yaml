@@ -36,7 +36,7 @@ jobs:
         with:
           append: |
             - endpoint: ssh://nr@${{ secrets.SSH_REMOTE_HOST }}:2022
-              platforms: linux/arm64, linux/arm/v6, linux/arm/v7
+              platforms: linux/arm64,linux/arm/v6,linux/arm/v7
       - name: Build and push
         id: build-push
         uses: docker/build-push-action@v5
