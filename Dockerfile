@@ -10,7 +10,11 @@ RUN apk add --no-cache \
     bash \
     tzdata \
     curl \
-    nano 
+    nano \
+    git \
+    openssl \
+    openssh-client \
+    ca-certificates
 
 RUN  apk add --no-cache --virtual buildtools build-base linux-headers udev python3 && \
     npm install --unsafe-perm --no-update-notifier --no-audit --no-fund --only=production
