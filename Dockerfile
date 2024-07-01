@@ -18,3 +18,4 @@ RUN apk add --no-cache \
 
 RUN  apk add --no-cache --virtual buildtools build-base linux-headers udev python3 && \
     npm install --unsafe-perm --no-update-notifier --no-audit --no-fund --only=production
+    
